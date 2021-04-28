@@ -1,0 +1,11 @@
+.h1 {
+    color: gray;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+.textCenter {
+    text-align: center;
+}

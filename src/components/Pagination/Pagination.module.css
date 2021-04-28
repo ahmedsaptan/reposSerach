@@ -1,0 +1,27 @@
+.Center {
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.Pagination {
+    display: inline-block;
+}
+
+.Pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.ButtonBlue {
+    background-color: #008cba;
+} /* Blue */
+
+.CButton {
+    border-radius: 50%;
+}
+
+.A {
+    cursor: pointer;
+}

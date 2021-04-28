@@ -1,0 +1,51 @@
+@keyframes example {
+  100% {
+    transform: translateX(10%);
+  }
+  0% {
+    transform: translateX(-10%);
+  }
+}
+
+.Table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  animation: example 1s ease-in-out;
+}
+
+.Td,
+.Th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.Tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+.Button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.ButtonBlue {
+  background-color: #008cba;
+} /* Blue */
+
+.CButton {
+  border-radius: 50%;
+}
+
+.A {
+  cursor: pointer;
+}
