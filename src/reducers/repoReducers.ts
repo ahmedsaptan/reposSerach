@@ -1,4 +1,5 @@
 import {
+  PAGE_NUMBER_GET,
   REPO_LIST_ERROR,
   REPO_LIST_REQUEST,
   REPO_LIST_SUCCESS,
@@ -41,6 +42,18 @@ export const reposCount = (
   switch (action.type) {
     case REPOS_GET_COUNT:
       return { reposCount: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const pageNumber = (
+  state = { pageNumber: 0 },
+  action: { type: string; payload: any }
+) => {
+  switch (action.type) {
+    case PAGE_NUMBER_GET:
+      return { pageNumber: action.payload };
     default:
       return state;
   }

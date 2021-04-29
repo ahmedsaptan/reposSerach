@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-
 import styles from "./SearchBar.module.css";
 import { listRepos } from "../../actions/repoActions";
-import { REPO_TITLE_ENTER } from "../../constants/repoConstants";
+import {
+  PAGE_NUMBER_GET,
+  REPO_TITLE_ENTER,
+} from "../../constants/repoConstants";
 type Props = {};
 
 const SearchBar: React.FC<Props> = () => {
@@ -11,7 +13,14 @@ const SearchBar: React.FC<Props> = () => {
   const dispatch = useDispatch();
   const onSubmit = (e: any) => {
     e.preventDefault();
+    if ((repoTitle && repoTitle.length < 1) || !repoTitle) {
+      return;
+    }
     dispatch(listRepos(repoTitle));
+    dispatch({
+      type: PAGE_NUMBER_GET,
+      payload: 1,
+    });
     dispatch({
       type: REPO_TITLE_ENTER,
       payload: repoTitle,
