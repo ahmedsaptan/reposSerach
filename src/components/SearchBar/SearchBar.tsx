@@ -23,9 +23,8 @@ const SearchBar: React.FC<Props> = () => {
       setWrongFormatError(true);
       return;
     }
-    const [owner, repoName] = repoTitle.split("/:");
 
-    dispatch(listRepos(owner, repoName));
+    dispatch(listRepos(repoTitle));
     dispatch({
       type: PAGE_NUMBER_GET,
       payload: 1,

@@ -14,6 +14,7 @@ import Home from "./components/Home/Home";
 import Modal from "./components/Modal/Modal";
 import { MODEL_CLOSE } from "./constants/repoConstants";
 import Welcome from "./components/Welcome/Welcome";
+import MyFavorites from "./components/MyFavorites/MyFavorites";
 
 function App() {
   const [fav, setFave] = useState([]);
@@ -50,8 +51,8 @@ function App() {
           <main>
             <Route path="/" exact component={Welcome} />
             <Route path="/search" exact component={Home} />
+            <Route path="/fav" exact component={MyFavorites} />
           </main>
-          {/*<Footer />*/}
         </BrowserRouter>
 
         <Modal

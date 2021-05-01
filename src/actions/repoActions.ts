@@ -8,17 +8,32 @@ import {
 import axios from "axios";
 
 export const listRepos = (
-  owner: string,
-  repoName: string,
+  repoTitle: string,
   page: number = 1,
   per_page: number = 10
 ) => async (dispatch: any) => {
+  const newTrimValue = repoTitle.replace(/ /g, "");
+  if (!newTrimValue.includes("/:")) {
+    return;
+  }
+  const [owner, repoName] = repoTitle.split("/:");
+
   try {
     dispatch({
       type: REPO_LIST_REQUEST,
     });
 
-    const { data } = await axios.get(
+    const repoInfo = await axios.get(
+      `https://api.github.com/repos/${owner}/${repoName}`,
+      {
+        params: {
+          page,
+          per_page,
+        },
+      }
+    );
+    console.log("DDDD", repoInfo.data);
+    const forks = await axios.get(
       `https://api.github.com/repos/${owner}/${repoName}/forks`,
       {
         params: {
@@ -27,14 +42,14 @@ export const listRepos = (
         },
       }
     );
-    console.log(data);
+    console.log("data1", forks.data);
     dispatch({
       type: REPO_LIST_SUCCESS,
-      payload: data,
+      payload: forks.data,
     });
     dispatch({
       type: REPOS_GET_COUNT,
-      payload: data.total_count,
+      payload: repoInfo.data?.forks,
     });
   } catch (e) {
     console.log(e);

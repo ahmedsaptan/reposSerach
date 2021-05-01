@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { MODEL_OPEN } from "../../../constants/repoConstants";
 
 type Props = {
+  addBtn: boolean;
   row: {
     watchers_count: number;
     watchers: number;
@@ -20,7 +21,7 @@ type Props = {
   };
 };
 
-const RepoRow: React.FC<Props> = ({ row }) => {
+const RepoRow: React.FC<Props> = ({ row, addBtn = true }) => {
   const dispatch = useDispatch();
 
   const addToFav = (e: any, repoName: string) => {
@@ -42,9 +43,11 @@ const RepoRow: React.FC<Props> = ({ row }) => {
           </a>
         </button>
       </td>
-      <td className={styles.Td}>
-        <button onClick={(e) => addToFav(e, row.full_name)}>Add</button>
-      </td>
+      {addBtn && (
+        <td className={styles.Td}>
+          <button onClick={(e) => addToFav(e, row.full_name)}>Add</button>
+        </td>
+      )}
     </tr>
   );
 };

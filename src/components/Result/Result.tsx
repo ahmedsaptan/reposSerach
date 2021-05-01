@@ -31,7 +31,7 @@ const ResultTable: React.FC<Props> = () => {
               </thead>
               <tbody>
                 {repos?.map((item: any) => {
-                  return <RepoRow row={item} key={item.id} />;
+                  return <RepoRow row={item} key={item.id} addBtn={true} />;
                 })}
               </tbody>
             </table>
