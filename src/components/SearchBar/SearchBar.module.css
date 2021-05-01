@@ -40,3 +40,10 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+
+.wrongFormatError {
+  color: red;
+  font-size: 15px;
+
+}

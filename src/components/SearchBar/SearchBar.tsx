@@ -23,6 +23,7 @@ const SearchBar: React.FC<Props> = () => {
       setWrongFormatError(true);
       return;
     }
+    setWrongFormatError(false);
 
     dispatch(listRepos(repoTitle));
     dispatch({
@@ -49,6 +50,11 @@ const SearchBar: React.FC<Props> = () => {
             Search
           </button>
         </div>
+        {wrongFormatError && (
+          <div className={styles.wrongFormatError}>
+            <p>Wrong format</p>
+          </div>
+        )}
       </form>
     </div>
   );
