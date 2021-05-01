@@ -1,6 +1,32 @@
-.Welcome{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-    letter-spacing: 5px;
+
+
+.topnav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #00b4cc;
+    color: white;
 }

@@ -1,4 +1,6 @@
 import {
+  MODEL_CLOSE,
+  MODEL_OPEN,
   PAGE_NUMBER_GET,
   REPO_LIST_ERROR,
   REPO_LIST_REQUEST,
@@ -54,6 +56,20 @@ export const pageNumber = (
   switch (action.type) {
     case PAGE_NUMBER_GET:
       return { pageNumber: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const showModal = (
+  state = { repo: null, show: false },
+  action: { type: string; payload: any }
+) => {
+  switch (action.type) {
+    case MODEL_OPEN:
+      return { repo: action.payload, show: true };
+    case MODEL_CLOSE:
+      return { show: false, repo: null };
     default:
       return state;
   }

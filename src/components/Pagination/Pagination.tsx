@@ -8,10 +8,8 @@ type Props = {};
 const Pagination: React.FC<Props> = () => {
   const res = useSelector((state: any) => state.reposCount);
   const pageNumRes = useSelector((state: any) => state.pageNumber);
-  console.log("BEFORE _EFFECT_", pageNumRes);
   const pageNumber: number = pageNumRes.pageNumber;
   useEffect(() => {
-    console.log("FROM_EFFECT: => ", pageNumber);
     setCurrentPage((current) => pageNumber);
   }, [pageNumRes]);
   const dispatch = useDispatch();
@@ -25,7 +23,7 @@ const Pagination: React.FC<Props> = () => {
     if (currentPage == res?.reposCount / 10) {
       return;
     }
-    dispatch(listRepos(result.repoTitle, currentPage + 1));
+    // dispatch(listRepos(result.repoTitle, currentPage + 1));
     dispatch({
       type: PAGE_NUMBER_GET,
       payload: currentPage + 1,
@@ -36,7 +34,7 @@ const Pagination: React.FC<Props> = () => {
     if (currentPage <= 1) {
       return;
     }
-    dispatch(listRepos(result.repoTitle, currentPage - 1));
+    // dispatch(listRepos(result.repoTitle, currentPage - 1));
     dispatch({
       type: PAGE_NUMBER_GET,
       payload: currentPage - 1,

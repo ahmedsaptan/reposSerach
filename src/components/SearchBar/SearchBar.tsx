@@ -10,13 +10,22 @@ type Props = {};
 
 const SearchBar: React.FC<Props> = () => {
   const [repoTitle, setRepoTitle] = useState("");
+  const [wrongFormatError, setWrongFormatError] = useState(false);
   const dispatch = useDispatch();
   const onSubmit = (e: any) => {
     e.preventDefault();
+
     if ((repoTitle && repoTitle.length < 1) || !repoTitle) {
       return;
     }
-    dispatch(listRepos(repoTitle));
+    const newTrimValue = repoTitle.replace(/ /g, "");
+    if (!newTrimValue.includes("/:")) {
+      setWrongFormatError(true);
+      return;
+    }
+    const [owner, repoName] = repoTitle.split("/:");
+
+    dispatch(listRepos(owner, repoName));
     dispatch({
       type: PAGE_NUMBER_GET,
       payload: 1,
@@ -35,7 +44,7 @@ const SearchBar: React.FC<Props> = () => {
             value={repoTitle}
             onChange={(e) => setRepoTitle(e.target.value)}
             className={styles.searchTerm}
-            placeholder="What are you looking for?"
+            placeholder="What are you looking for? owner/:repoName"
           />
           <button type="submit" className={styles.searchButton}>
             Search

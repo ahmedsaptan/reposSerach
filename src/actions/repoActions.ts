@@ -8,7 +8,8 @@ import {
 import axios from "axios";
 
 export const listRepos = (
-  q: string,
+  owner: string,
+  repoName: string,
   page: number = 1,
   per_page: number = 10
 ) => async (dispatch: any) => {
@@ -16,16 +17,17 @@ export const listRepos = (
     dispatch({
       type: REPO_LIST_REQUEST,
     });
+
     const { data } = await axios.get(
-      `https://api.github.com/search/repositories`,
+      `https://api.github.com/repos/${owner}/${repoName}/forks`,
       {
         params: {
-          q,
           page,
           per_page,
         },
       }
     );
+    console.log(data);
     dispatch({
       type: REPO_LIST_SUCCESS,
       payload: data,
@@ -35,6 +37,7 @@ export const listRepos = (
       payload: data.total_count,
     });
   } catch (e) {
+    console.log(e);
     dispatch({
       type: REPO_LIST_ERROR,
       payload:

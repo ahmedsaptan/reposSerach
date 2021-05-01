@@ -6,6 +6,7 @@ import {
   repoTitle,
   reposCount,
   pageNumber,
+  showModal,
 } from "./reducers/repoReducers";
 
 const reducers = combineReducers({
@@ -13,6 +14,7 @@ const reducers = combineReducers({
   repoTitle: repoTitle,
   reposCount: reposCount,
   pageNumber: pageNumber,
+  showModal: showModal,
 });
 
 const initialState = {};

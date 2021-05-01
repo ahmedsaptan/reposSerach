@@ -1,0 +1,56 @@
+.bgimg {
+  margin-top: 10vh;
+  background-image: linear-gradient(
+    to left,
+    #333,
+    #333 50%,
+    #eee 75%,
+    #333 75%
+  );
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+hr {
+  width: 40%;
+  margin: auto auto 2rem;
+}
+
+.Link {
+  text-decoration: none;
+  color: #00b4cc;
+}
+
+.LinkWapper {
+  border: 1px solid #00b4cc;
+  border-radius: 15px;
+  margin-top: 1rem;
+  letter-spacing: 13.5px;
+  font-size: large;
+  padding: 10px;
+}
